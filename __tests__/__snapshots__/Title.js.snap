@@ -1,0 +1,9 @@
+exports[`Title renders 1`] = `
+<div>
+  <button
+    className="Next-Button"
+    onClick={[Function]}>
+    NEXT
+  </button>
+</div>
+`;

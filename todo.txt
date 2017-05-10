@@ -1,0 +1,11 @@
+- create slides
+  - title slide
+  - content slide
+  - column slide
+- add navigation
+  - links to slides
+  - indicator for visited slides
+- title for slides
+- allow edits on slides
+- allow delete slides
+- allow url to change with slides

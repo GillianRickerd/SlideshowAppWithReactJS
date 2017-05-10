@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.navigation {
+  width: 20%;
+}
+
+.slides {
+  width: 80%;
+}
+
+.page {
+  /*text-align: center;*/
+  margin:10px;
+}
+
+table {
+  width: 100%;
+}
