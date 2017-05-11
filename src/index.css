@@ -5,7 +5,11 @@ body {
 }
 
 .navigation {
+  vertical-align: top;
+  text-align: center;
+  border: solid;
   width: 20%;
+  height:70%;
 }
 
 .slides {
@@ -13,16 +17,19 @@ body {
 }
 
 .page {
-  /*text-align: center;*/
   margin:10px;
+  height:70%;
 }
 
 table {
-  width: 100%;
+  width:100%;
+
 }
 
 .title-slide {
   vertical-align: middle;
+  border-style: solid;
+  height: 400px;
 }
 
 .simple-slide {
@@ -33,6 +40,22 @@ table {
   /*add styling here*/
 }
 
-h1 {
+h1, h3 {
   text-align: center;
+}
+
+li,p {
+  text-align: left;
+}
+
+.Next-Button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.Prev-Button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }

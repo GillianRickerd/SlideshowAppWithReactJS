@@ -1,14 +1,18 @@
 import React from 'react';
 //import { createStore } from 'redux';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './index.css';
+import $ from 'jquery';
+//import {clickTitle} from '../actions/index';
+//import { connect } from 'react-redux';
+//import {bindActionCreators} from 'redux'
 
 //let store = createStore()
 export default class Title extends React.Component {
   constructor(props) {
     super(props);
     // do we need content here?
-    this.state = { title:'', type:'title', content:[] };
+    this.state = { title:'awesome title', type:'title', content:[] };
   }
 
   getPageInfo() {
@@ -25,11 +29,23 @@ export default class Title extends React.Component {
 
   render() {
     return (
-      <div className="title-slide">
-        <h1>{this.state.title}</h1>
+      <div>
+        <h1 onClick = {() => this.props.clickTitle(this.state.title)}>{this.state.title}</h1>
         <button className="Next-Button" onClick={this.props.nextClick}>NEXT</button>
         <button className="Prev-Button" onClick={this.props.prevClick}>PREV</button>
       </div>
     );
   }
 }
+//
+// function matchDispatchToProps(dispatch) {
+//   return bindActionCreators({clickTitle:title}, dispatch);
+// }
+
+// const mapStateToProps = (state) => {
+//   return {
+//
+//   };
+// };
+
+//export connect(mapStateToProps, matchDispatchToProps)(Title);

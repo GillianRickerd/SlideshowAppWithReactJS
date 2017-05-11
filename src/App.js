@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Slides from './Slides';
+//import Slides from './Slides';
+import Presentation from './Presentation';
+import Navigation from './Navigation';
 //import TitleSlide from './TitleSlide';
 
 class App extends Component {
@@ -16,31 +18,25 @@ class App extends Component {
 
   render() {
     return (
-      <table className="page">
-      <tbody>
-        <tr>
-          <td className="navigation">
-            <p>test</p>
-          </td>
-          <td className="slides">
-            //<SlideTitle title="title" />
-            <div>
-              <li>{this.state.content}</li>
-            </div>
-
-
-            <p>test</p>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div className="page">
+        <table className="">
+        <tbody>
+          <tr>
+            <td className="navigation">
+              <Navigation />
+            </td>
+            <td className="slides">
+              <div className="title-slide">
+                <Presentation />
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
     );
   }
-}
-
-function SlideTitle(props) {
-  return <h2>{props.title}</h2>;
 }
 
 export default App;

@@ -1,0 +1,13 @@
+exports[`Navigation renders 1`] = `
+<div>
+  <h3>
+    presentation title
+  </h3>
+  <ul>
+    <p>
+      ✅ 
+      slide1
+    </p>
+  </ul>
+</div>
+`;

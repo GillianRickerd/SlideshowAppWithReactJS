@@ -1,30 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './index.css';
-import Title from './title';
-import Simple from './simple';
-import TwoColumn from './twocolumn';
-import $ from 'jquery'
+import Title from './Title';
+import Simple from './Simple';
+import TwoColumn from './TwoColumn';
+//import $ from 'jquery'
 
 export default class Slides extends React.Component {
   constructor() {
     super();
     this.state = {
-      type: '',
+      type: 'title',
     };
   }
 
   // pass url in as param?
-  getTypeFromAPI() {
-    return $.getJSON('google.com/type')
-      .then((data) => {
-        this.setState({ type:data.results })
-      });
-  }
+  // getTypeFromAPI() {
+  //   return $.getJSON('google.com/type')
+  //     .then((data) => {
+  //       this.setState({ type:data.results })
+  //     });
+  // }
 
   getType() {
     // is using var okay? const or let instead?
-    this.getTypeFromAPI();
+    //this.getTypeFromAPI();
     var slideType = this.state.type;
 
     // are these types named like this?

@@ -1,7 +1,8 @@
 import React from 'react';
 //import { createStore } from 'redux';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './index.css';
+import $ from 'jquery';
 
 //let store = createStore()
 export default class TwoColumn extends React.Component {

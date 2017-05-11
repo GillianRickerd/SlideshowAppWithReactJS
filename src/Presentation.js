@@ -1,12 +1,13 @@
 import React from 'react';
 import './index.css';
-import Slides from './slides'
+import Slides from './Slides'
+import $ from 'jquery';
 
-export default class Presentations extends React.Component {
+export default class Presentation extends React.Component {
   constructor() {
     super();
     this.state = {
-      title:'',
+      title:'cool presentation',
       listOfSlides:[],
     };
   }
@@ -24,7 +25,7 @@ export default class Presentations extends React.Component {
     return $.getJSON('google.com/slide/#')
       .then((data) => {
         // this condition needs to be redone
-        for (i = 0; i < listOfSlides.length; i++) {
+        for (i = 0; i < this.state.listOfSlides.length; i++) {
           // need to get individual portion of string
           this.setState({ listOfSlides:data.results })
         }
