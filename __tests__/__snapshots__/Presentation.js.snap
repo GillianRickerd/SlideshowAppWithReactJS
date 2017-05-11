@@ -1,0 +1,3 @@
+exports[`Presentations contains a title 1`] = `<Slides />`;
+
+exports[`Presentations renders 1`] = `<Slides />`;

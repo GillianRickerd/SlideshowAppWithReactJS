@@ -1,5 +1,6 @@
 exports[`Simple renders 1`] = `
-<div>
+<div
+  className="simple-slide">
   <h1 />
   <ol>
     <div />

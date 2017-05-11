@@ -28,7 +28,7 @@ export default class TwoColumn extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="two-column-slide">
         <h1>{this.state.title}</h1>
         // make these lists in line horizontally
         // maybe put in a div

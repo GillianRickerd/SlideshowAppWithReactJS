@@ -1,1 +1,5 @@
-exports[`Slides renders 1`] = `<div />`;
+exports[`Slides renders 1`] = `
+<div>
+  <div />
+</div>
+`;

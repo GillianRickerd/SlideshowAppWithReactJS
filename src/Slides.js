@@ -1,9 +1,10 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 import Title from './title';
 import Simple from './simple';
 import TwoColumn from './twocolumn';
+import $ from 'jquery'
 
 export default class Slides extends React.Component {
   constructor() {
@@ -13,8 +14,9 @@ export default class Slides extends React.Component {
     };
   }
 
+  // pass url in as param?
   getTypeFromAPI() {
-    return $.getJSON('google.com/slide/type')
+    return $.getJSON('google.com/type')
       .then((data) => {
         this.setState({ type:data.results })
       });
@@ -22,6 +24,7 @@ export default class Slides extends React.Component {
 
   getType() {
     // is using var okay? const or let instead?
+    this.getTypeFromAPI();
     var slideType = this.state.type;
 
     // are these types named like this?
@@ -37,7 +40,7 @@ export default class Slides extends React.Component {
   }
 
   render() {
-    return(<div></div>);
+    return(<div>{this.getType()}</div>);
   }
 
 }

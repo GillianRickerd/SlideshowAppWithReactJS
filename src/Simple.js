@@ -25,7 +25,7 @@ export default class Simple extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="simple-slide">
         <h1>{this.state.title}</h1>
         <ol>
           {this.makeList(this.state.content)}

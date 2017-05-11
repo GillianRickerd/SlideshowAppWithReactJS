@@ -9,5 +9,6 @@
   - indicator for visited slides
 - title for slides
 - allow edits on slides
+  - forms?
 - allow delete slides
 - allow url to change with slides

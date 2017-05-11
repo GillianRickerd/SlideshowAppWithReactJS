@@ -25,6 +25,14 @@ table {
   vertical-align: middle;
 }
 
+.simple-slide {
+  /*add styling here*/
+}
+
+.two-column-slide {
+  /*add styling here*/
+}
+
 h1 {
   text-align: center;
 }
