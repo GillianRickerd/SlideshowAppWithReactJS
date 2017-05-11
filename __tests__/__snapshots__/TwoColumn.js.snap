@@ -1,0 +1,16 @@
+exports[`TwoColumn renders 1`] = `
+<div>
+  <h1 />
+  // make these lists in line horizontally // maybe put in a div
+  <ol />
+  <ol />
+  <button
+    className="Next-Button">
+    NEXT
+  </button>
+  <button
+    className="Prev-Button">
+    PREV
+  </button>
+</div>
+`;

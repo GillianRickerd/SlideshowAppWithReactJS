@@ -1,7 +1,9 @@
-exports[`Title renders 1`] = `
-<div
-  className="title-slide">
+exports[`Simple renders 1`] = `
+<div>
   <h1 />
+  <ol>
+    <div />
+  </ol>
   <button
     className="Next-Button"
     onClick={[Function]}>

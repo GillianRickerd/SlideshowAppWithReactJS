@@ -4,32 +4,44 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 //let store = createStore()
-export default class Title extends React.Component {
+export default class TwoColumn extends React.Component {
   constructor(props) {
     super(props);
-    // do we need content here?
-    this.state = { title:'', type:'title', content:[] };
+    this.state = { title:'', type:'title', content:[], content2:[] };
   }
-
   getPageInfo() {
     return $.getJSON('google.com/slide')
       .then((data) => {
         // how can we get data for individual variables?
-        // use regex to separate string into different variables?
-        // assuming format of json is type,title,content
-        // separated by an uncommon utf char
-        // '^/w*' matches type (should skip over this)
         this.setState({ title:data.results })
       });
   }
-
+  makeColumn1(contentList) {
+    for (var i = 0; i < contentList.length; i++) {
+      return (<li>{contentList[i]}</li>);
+    }
+  }
+  makeColumn2(contentList) {
+    for (var i = 0; i < contentList.length; i++) {
+      return (<li>{contentList[i]}</li>);
+    }
+  }
   render() {
     return (
-      <div className="title-slide">
+      <div>
         <h1>{this.state.title}</h1>
+        // make these lists in line horizontally
+        // maybe put in a div
+        <ol>
+          {this.makeColumn1(this.state.content)}
+        </ol>
+        <ol>
+          {this.makeColumn2(this.state.content2)}
+        </ol>
         <button className="Next-Button" onClick={this.props.nextClick}>NEXT</button>
         <button className="Prev-Button" onClick={this.props.prevClick}>PREV</button>
       </div>
     );
   }
+
 }
