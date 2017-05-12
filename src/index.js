@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-//import {createStore} from 'redux';
+import nextSlide from './reducers';
+import {createStore} from 'redux';
 
-//const store = createStore();
+const store = createStore(nextSlide);
 
 ReactDOM.render(
-  <App />,
+  <App
+    onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+    onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+  />,
   document.getElementById('root')
 );

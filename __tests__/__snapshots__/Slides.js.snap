@@ -1,5 +1,5 @@
 exports[`Slides renders 1`] = `
 <div>
-  <Title />
+  <div />
 </div>
 `;

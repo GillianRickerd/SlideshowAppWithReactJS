@@ -1,18 +1,19 @@
 exports[`Simple renders 1`] = `
-<div
-  className="simple-slide">
-  <h1 />
-  <ol>
-    <div />
-  </ol>
-  <button
-    className="Next-Button"
-    onClick={[Function]}>
-    NEXT
-  </button>
-  <button
-    className="Prev-Button">
-    PREV
-  </button>
+<div>
+  <div
+    className="simple-slide">
+    <h1
+      onClick={[Function]}>
+      simple title
+    </h1>
+    <ul>
+      <li>
+        hello
+      </li>
+      <li>
+        bonjour
+      </li>
+    </ul>
+  </div>
 </div>
 `;

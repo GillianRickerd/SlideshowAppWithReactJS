@@ -13,17 +13,6 @@ export default class Navigation extends Component {
     };
   }
 
-  findListed() {
-    // how to return each item in the list
-    for(var i = 0; i < this.state.slideTitles.length; i++) {
-      if (this.state.slideVisited[i]) {
-        return (<p>&#9989;&nbsp;{this.state.slideTitles[i]}</p>);
-      } else {
-        return (<p>{this.state.slideTitles[i]}</p>);
-      }
-    }
-  }
-
   getPageInfo() {
     return $.getJSON('google.com/slide')
       .then((data) => {
@@ -36,14 +25,30 @@ export default class Navigation extends Component {
       });
   }
 
+  findListed(slideTitles) {
+    return(
+      <ul>
+        {slideTitles.map((item, index) => <p key={index}>{item.title}</p>)}
+      </ul>
+    );
+  }
+
+  findVisited(slideTitles) {
+    return(
+      <ul>
+        {slideTitles.map((item, index) => <p key={index}>{item.visited}</p>)}
+      </ul>
+    );
+  }
+
   render() {
     return(
       <div>
-        <h3>presentation title</h3>
-        <ul>
-
-          {this.findListed()}
-        </ul>
+        <h3>{this.props.navData.title}</h3>
+        <p>
+          {this.findVisited(this.props.navData.listOfSlides)}
+          {this.findListed(this.props.navData.listOfSlides)}
+        </p>
       </div>
     );
   }

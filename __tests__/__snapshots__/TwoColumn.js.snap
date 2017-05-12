@@ -1,17 +1,28 @@
 exports[`TwoColumn renders 1`] = `
 <div
   className="two-column-slide">
-  <h1 />
-  // make these lists in line horizontally // maybe put in a div
-  <ol />
-  <ol />
-  <button
-    className="Next-Button">
-    NEXT
-  </button>
-  <button
-    className="Prev-Button">
-    PREV
-  </button>
+  <h1>
+    column title
+  </h1>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>
+              col 1
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>
+              col 2
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;

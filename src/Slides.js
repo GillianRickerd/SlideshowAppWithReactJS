@@ -1,16 +1,21 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import './index.css';
+
 import Title from './Title';
 import Simple from './Simple';
 import TwoColumn from './TwoColumn';
 //import $ from 'jquery'
 
 export default class Slides extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      type: 'title',
+      slideData: {
+        type:'',
+        title:'',
+        content:[],
+      }
     };
   }
 
@@ -22,25 +27,24 @@ export default class Slides extends React.Component {
   //     });
   // }
 
-  getType() {
+  getType(slideData) {
     // is using var okay? const or let instead?
     //this.getTypeFromAPI();
-    var slideType = this.state.type;
-
+    const slideType = this.props.slideData.type;
     // are these types named like this?
     if (slideType === 'title') {
-      return (<Title />);
+      return (<Title titleData={this.props.slideData} />);
     } else if (slideType === 'simple') {
-      return (<Simple />);
+      return (<Simple simpleData={this.props.slideData}/>);
     } else if (slideType === 'twocolumn') {
-      return (<TwoColumn />);
+      return (<TwoColumn twoColumnData={this.props.slideData}/>);
     } else {
       return (<div></div>);
     }
   }
 
   render() {
-    return(<div>{this.getType()}</div>);
+    return(<div>{this.getType(this.state.slideData)}</div>);
   }
 
 }

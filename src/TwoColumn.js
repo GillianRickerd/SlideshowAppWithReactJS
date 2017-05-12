@@ -6,10 +6,6 @@ import $ from 'jquery';
 
 //let store = createStore()
 export default class TwoColumn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { title:'', type:'title', content:[], content2:[] };
-  }
   getPageInfo() {
     return $.getJSON('google.com/slide')
       .then((data) => {
@@ -17,30 +13,30 @@ export default class TwoColumn extends React.Component {
         this.setState({ title:data.results })
       });
   }
-  makeColumn1(contentList) {
-    for (var i = 0; i < contentList.length; i++) {
-      return (<li>{contentList[i]}</li>);
-    }
-  }
-  makeColumn2(contentList) {
-    for (var i = 0; i < contentList.length; i++) {
-      return (<li>{contentList[i]}</li>);
-    }
+  makeColumn(contentList) {
+    return(
+      <ul>
+        {contentList.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>
+    );
   }
   render() {
     return (
       <div className="two-column-slide">
-        <h1>{this.state.title}</h1>
-        // make these lists in line horizontally
-        // maybe put in a div
-        <ol>
-          {this.makeColumn1(this.state.content)}
-        </ol>
-        <ol>
-          {this.makeColumn2(this.state.content2)}
-        </ol>
-        <button className="Next-Button" onClick={this.props.nextClick}>NEXT</button>
-        <button className="Prev-Button" onClick={this.props.prevClick}>PREV</button>
+        <h1>{this.props.twoColumnData.title}</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                {this.makeColumn(this.props.twoColumnData.content)}
+              </td>
+              <td>
+                {this.makeColumn(this.props.twoColumnData.content2)}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
     );
   }

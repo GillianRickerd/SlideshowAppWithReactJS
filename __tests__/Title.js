@@ -23,7 +23,7 @@ describe('Title', () => {
   it('checks title', () => {
     const wrapper = shallow(<Title title='cool title' type='' contents={[]} />)
     wrapper.find('h1')
-    expect(toJson(wrapper))==='cool title'
+    expect(wrapper).toContain('cool title')
   });
 
 });

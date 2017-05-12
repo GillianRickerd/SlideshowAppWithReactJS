@@ -14,6 +14,7 @@ body {
 
 .slides {
   width: 80%;
+  height:70%;
 }
 
 .page {
@@ -26,14 +27,18 @@ table {
 
 }
 
-.title-slide {
-  vertical-align: middle;
+.slideDiv {
+  text-align: center;
   border-style: solid;
   height: 400px;
 }
 
+.title-slide {
+  position: relative;
+}
+
 .simple-slide {
-  /*add styling here*/
+  position: relative;
 }
 
 .two-column-slide {
@@ -44,18 +49,18 @@ h1, h3 {
   text-align: center;
 }
 
-li,p {
+li, p {
   text-align: left;
 }
 
 .Next-Button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position:absolute;
+  right: 2%;
+  top:50%;
 }
 
 .Prev-Button {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position:absolute;
+  left: 22%;
+  top:50%;
 }
