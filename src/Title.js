@@ -2,6 +2,7 @@ import React from 'react';
 //import { createStore } from 'redux';
 //import ReactDOM from 'react-dom';
 import './index.css';
+
 import $ from 'jquery';
 //import {clickTitle} from '../actions/index';
 //import { connect } from 'react-redux';

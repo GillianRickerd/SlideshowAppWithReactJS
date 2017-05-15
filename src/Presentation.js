@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import Slides from './Slides'
+
 //import App from './App'
 //import $ from 'jquery';
 

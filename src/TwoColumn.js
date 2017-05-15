@@ -4,6 +4,7 @@ import React from 'react';
 import './index.css';
 import $ from 'jquery';
 
+
 //let store = createStore()
 export default class TwoColumn extends React.Component {
   getPageInfo() {
@@ -15,9 +16,9 @@ export default class TwoColumn extends React.Component {
   }
   makeColumn(contentList) {
     return(
-      <ul>
+      <td><ul>
         {contentList.map((item, index) => <li key={index}>{item}</li>)}
-      </ul>
+      </ul></td>
     );
   }
   render() {
@@ -27,12 +28,8 @@ export default class TwoColumn extends React.Component {
         <table>
           <tbody>
             <tr>
-              <td>
-                {this.makeColumn(this.props.twoColumnData.content)}
-              </td>
-              <td>
-                {this.makeColumn(this.props.twoColumnData.content2)}
-              </td>
+              {this.makeColumn(this.props.twoColumnData.content)}
+              {this.makeColumn(this.props.twoColumnData.content2)}
             </tr>
           </tbody>
         </table>

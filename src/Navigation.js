@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import Slides from './Slides';
+//import {updateSlide} from './App';
+
 //import $ from 'jquery';
 //import Presentation from './Presentation';
 
@@ -16,6 +19,19 @@ export default class Navigation extends Component {
   //     });
   // }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      navData: {
+        title: '',
+        listOfSlides: [],
+        currentSlideIndex: 0,
+      }
+    };
+    this.updateSlide = this.updateSlide.bind(this);
+  }
+
+
 
   getVisitedValue(item) {
     if (item.visited===true) {
@@ -28,12 +44,30 @@ export default class Navigation extends Component {
     return(
       <div className="list">
         {slideTitles.map((item, index) =>
-          <p key={index}>{this.getVisitedValue(item)} &nbsp; {item.title}</p>)}
+          <p key={index}>{this.getVisitedValue(item)} &nbsp;
+            <a onClick={() => this.updateSlide(index)} href="#">{item.title}</a></p>)}
+        <Slides slideData={this.getSlideData} />
       </div>
     );
   }
 
+  getSlideData() {
+    const slide = this.props.navData.listOfSlides[this.props.navData.currentSlideIndex];
+    return slide;
+  }
 
+  updateSlide(index) {
+      // const slide = this.state.navData.currentSlideIndex;
+      //contacts.push(index);
+      // console.log(this.state.navData.currentSlideIndex);
+      this.setState({
+        navData:{
+          ...this.state.navData,
+          currentSlideIndex: index
+        }
+      });
+      console.log(this.state.navData.currentSlideIndex);
+  }
 
   render() {
     return(
