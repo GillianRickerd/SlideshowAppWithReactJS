@@ -20,7 +20,7 @@ export default class Title extends React.Component {
   render() {
     return (
       <div className="title-slide">
-        <h1 onClick={() =>
+        <h1 className="center-title" onClick={() =>
           this.state.clickTitle(this.props.titleData.title)}>
           {this.props.titleData.title}
         </h1>

@@ -45,6 +45,10 @@ table {
   /*add styling here*/
 }
 
+.center-title {
+  margin-top: 160px;
+}
+
 h1, h3 {
   text-align: center;
 }
@@ -54,13 +58,12 @@ li, p {
 }
 
 .Next-Button {
-  position:absolute;
-  right: 2%;
-  top:50%;
+  position:relative;
+  float: right;
+  right: 1%;
 }
 
 .Prev-Button {
-  position:absolute;
-  left: 22%;
-  top:50%;
+  position:relative;
+  left: 21%;
 }
