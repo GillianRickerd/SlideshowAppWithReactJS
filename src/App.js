@@ -16,11 +16,11 @@ class App extends Component {
           {type:'title',
             title:'title slide',
             content:[],
-            visited:true},
+            visited:false},
           {type:'simple',
             title:'simple slide',
             content:['panda', 'puppy', 'kitten'],
-            visited:true},
+            visited:false},
           {type:'twocolumn',
             title:'column slide',
             content:['gillian', 'jacob', 'charlotte'],
@@ -35,6 +35,7 @@ class App extends Component {
 
   // TODO: only move forward or back if valid
   nextSlide() {
+    this.updateVisited();
     this.setState({
       presentation:{
         ...this.state.presentation,
@@ -52,37 +53,42 @@ class App extends Component {
     });
   }
 
-  render() {
-    const presentationState = this.state.presentation;
-    //const { onIncrement, onDecrement } = this.props;
-    return (
-      <div className="page">
-        <table>
-          <tbody>
-            <tr>
-              <td className="navigation">
-                <Navigation navData={presentationState}/>
-              </td>
-              <td className="slides">
-                <div className="slideDiv">
-                  <Presentation presData={presentationState}/>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <button className="Next-Button"
-            onClick={
-              this.nextSlide
-
-            }>NEXT</button>
-          <button className="Prev-Button"
-            onClick={this.prevSlide}>PREV</button>
-        </div>
-      </div>
-    );
+  updateVisited() {
+    const slideToUpdate =
+      this.state.presentation.listOfSlides[this.state.presentation.currentSlideIndex];
+    slideToUpdate.visited=true;
+    this.setState({listOfSlides:this.state.listOfSlides});
   }
+
+  // if (this.state.presentation.currentSlideIndex===0) {
+    render() {
+      const presentationState = this.state.presentation;
+      //const { onIncrement, onDecrement } = this.props;
+      return (
+        <div className="page">
+          <table>
+            <tbody>
+              <tr>
+                <td className="navigation">
+                  <Navigation navData={presentationState}/>
+                </td>
+                <td className="slides">
+                  <div className="slideDiv">
+                    <Presentation presData={presentationState}/>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <button className="Next-Button"
+              onClick={this.nextSlide}>NEXT</button>
+            <button className="Prev-Button"
+              onClick={this.prevSlide}>PREV</button>
+          </div>
+        </div>
+      );
+    }
 }
 
 export default App;

@@ -27,12 +27,17 @@ export default class Slides extends React.Component {
   //     });
   // }
 
+  // updateVisited(data) {
+  //   data.visited===true;
+  // }
+
   getType(slideData) {
     // is using var okay? const or let instead?
     //this.getTypeFromAPI();
     const slideType = this.props.slideData.type;
     // are these types named like this?
     if (slideType === 'title') {
+      /*this.updateVisited(this.props.slideData);*/
       return (<Title titleData={this.props.slideData} />);
     } else if (slideType === 'simple') {
       return (<Simple simpleData={this.props.slideData}/>);

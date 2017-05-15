@@ -5,7 +5,6 @@ import Slides from './Slides'
 //import $ from 'jquery';
 
 export default class Presentation extends React.Component {
-
   // getTitleFromAPI() {
   //   return $.getJSON('google.com/pres')
   //     .then((data) => {

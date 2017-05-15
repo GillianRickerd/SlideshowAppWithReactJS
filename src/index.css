@@ -4,6 +4,18 @@ body {
   font-family: sans-serif;
 }
 
+p {
+  margin-top: -5px;
+}
+
+.list {
+  margin-left: 20px;
+}
+
+.navigation-title {
+  margin-bottom: 30px;
+}
+
 .navigation {
   vertical-align: top;
   text-align: center;
@@ -20,6 +32,10 @@ body {
 .page {
   margin:10px;
   height:70%;
+}
+
+.list-indent {
+  margin-left: 21px;
 }
 
 table {
