@@ -1,13 +1,5 @@
-- create slides
-  - title slide
-  - content slide
-  - column slide
-- add navigation
-  - next and previous buttons
-    - only shows if next/prev is valid
-  - links to slides
-  - indicator for visited slides
-- title for slides
+- only shows if next/prev is valid
+- links to slides
 - allow edits on slides
   - forms?
 - allow delete slides
