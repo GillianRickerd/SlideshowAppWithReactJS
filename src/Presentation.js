@@ -27,7 +27,9 @@ export default class Presentation extends React.Component {
   // }
 
   render() {
-    const slide = this.props.presData.listOfSlides[this.props.presData.currentSlideIndex];
+    console.log(this.props.presData.listOfSlides);
+    console.log("current index "+this.props.currentSlideIndex);
+    const slide = this.props.presData.listOfSlides[this.props.currentSlideIndex];
     return (<Slides slideData={slide} />);
   }
 }

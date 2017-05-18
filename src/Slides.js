@@ -32,12 +32,12 @@ export default class Slides extends React.Component {
   // }
 
   getType(slideData) {
-    // is using var okay? const or let instead?
     //this.getTypeFromAPI();
+    //console.log(this.props.slideData);
     const slideType = this.props.slideData.type;
     // are these types named like this?
     if (slideType === 'title') {
-      /*this.updateVisited(this.props.slideData);*/
+      // this.updateVisited(this.props.slideData);
       return (<Title titleData={this.props.slideData} />);
     } else if (slideType === 'simple') {
       return (<Simple simpleData={this.props.slideData}/>);
@@ -49,7 +49,7 @@ export default class Slides extends React.Component {
   }
 
   render() {
-    return(<div>{this.getType(this.state.slideData)}</div>);
+    return(<div>{this.getType(this.props.slideData)}</div>);
   }
 
 }

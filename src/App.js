@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
+//import Request from 'superagent';
 //import Home from './Home';
 //import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
@@ -9,24 +10,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      presentation: {
-        title: 'cool presentation',
-        listOfSlides: [
-          {type:'title',
-            title:'title slide',
-            content:[],
-            visited:false},
-          {type:'simple',
-            title:'simple slide',
-            content:['panda', 'puppy', 'kitten'],
-            visited:false},
-          {type:'twocolumn',
-            title:'column slide',
-            content:['gillian', 'jacob', 'charlotte'],
-            content2:['amy', 'kevin', 'julia'],
-            visited:false}],
-        currentSlideIndex: 0,
-      },
+      presentation: {},
+      currentSlideIndex:0,
       showPreviousButton: false,
       showNextButton: true
     };
@@ -35,29 +20,31 @@ class App extends Component {
     this.updateSlide = this.updateSlide.bind(this);
   }
 
-
   updateSlide(index) {
     const nextValueTemp = this.showNextButton(index);
     const prevValueTemp = this.showPrevButton(index);
+    this.props.updateSlideIndex(index);
     this.setState({
-      presentation:{
-        ...this.state.presentation,
-        currentSlideIndex:index
-      },
+      ...this.state,
       showPreviousButton:prevValueTemp,
       showNextButton:nextValueTemp
     });
   }
 
   updateVisited() {
-    const slideToUpdate =
-      this.state.presentation.listOfSlides[this.state.presentation.currentSlideIndex];
-    slideToUpdate.visited=true;
-    this.setState({listOfSlides:this.state.listOfSlides});
+    // const slideToUpdate = this.props.presentation.listOfSlides[this.props.currentSlideIndex];
+    // slideToUpdate.visited=true;
+
+    //this.setState({listOfSlides:this.props.presentation.listOfSlides});
+
+    this.props.updateVisited();
   }
 
   showNextButton(nextSlide) {
-    const lastSlide = this.state.presentation.listOfSlides.length-1;
+    console.log("presentation "+this.props.presentation);
+    console.log("list of slides "+this.props.presentation.listOfSlides);
+    console.log("length "+this.props.presentation.listOfSlides.length);
+    const lastSlide = this.props.presentation.listOfSlides.length-1;
     if (nextSlide>=lastSlide) {
       return false;
     } else {
@@ -73,53 +60,53 @@ class App extends Component {
     }
   }
 
-  // TODO: only move forward or back if valid
   nextSlide() {
-    const nextSlide = this.state.presentation.currentSlideIndex+1;
-    this.updateVisited();
+    const nextSlide = this.props.currentSlideIndex+1;
+    this.props.updateVisited();
     const nextValueTemp = this.showNextButton(nextSlide);
     const prevValueTemp = this.showPrevButton(nextSlide);
+    this.props.updateSlideIndex(nextSlide);
     this.setState({
-      presentation:{
-        ...this.state.presentation,
-        currentSlideIndex:this.state.presentation.currentSlideIndex+1
-      },
+      ...this.state,
       showPreviousButton:prevValueTemp,
       showNextButton:nextValueTemp
     });
   }
 
   prevSlide() {
-    const nextSlide = this.state.presentation.currentSlideIndex-1;
-    this.updateVisited();
+    const nextSlide = this.props.currentSlideIndex-1;
+    this.props.updateVisited();
+    console.log("prev clicked and current is " + this.props.currentSlideIndex);
+    console.log("prev clicked and next is " + nextSlide);
     const nextValueTemp = this.showNextButton(nextSlide);
     const prevValueTemp = this.showPrevButton(nextSlide);
+    this.props.updateSlideIndex(nextSlide);
     this.setState({
-      presentation:{
-        ...this.state.presentation,
-        currentSlideIndex:this.state.presentation.currentSlideIndex-1
-      },
+      ...this.state,
       showPreviousButton:prevValueTemp,
       showNextButton:nextValueTemp
     });
   }
 
   render() {
-    const presentationState = this.state.presentation;
-    //const { onIncrement, onDecrement } = this.props;
+    const presentationState = this.props.presentation;
     return (
       <div className="page">
-        {/*<Link to="/home" component="{Home}">Home</Link>*/}
         <table>
           <tbody>
             <tr>
               <td className="navigation">
-                <Navigation updateSlide={this.updateSlide}
-                  updateVisited={this.updateVisited} navData={presentationState}/>
+                <Navigation
+                  updateSlide={this.updateSlide}
+
+                  currentSlideIndex={this.props.currentSlideIndex}
+                  navData={presentationState}/>
               </td>
               <td className="slides">
                 <div className="slideDiv">
-                  <Presentation presData={presentationState}/>
+                  <Presentation
+                    presData={presentationState}
+                    currentSlideIndex={this.props.currentSlideIndex} />
                 </div>
               </td>
             </tr>
@@ -135,7 +122,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;

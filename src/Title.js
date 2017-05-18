@@ -10,14 +10,6 @@ import $ from 'jquery';
 
 //let store = createStore()
 export default class Title extends React.Component {
-
-  getPageInfo() {
-    return $.getJSON('google.com/slide')
-      .then((data) => {
-        this.setState({ title:data.results })
-      });
-  }
-
   render() {
     return (
       <div className="title-slide">
@@ -29,15 +21,3 @@ export default class Title extends React.Component {
     );
   }
 }
-//
-// function matchDispatchToProps(dispatch) {
-//   return bindActionCreators({clickTitle:title}, dispatch);
-// }
-
-// const mapStateToProps = (state) => {
-//   return {
-//
-//   };
-// };
-
-//export connect(mapStateToProps, matchDispatchToProps)(Title);

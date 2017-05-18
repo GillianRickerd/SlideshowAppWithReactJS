@@ -37,27 +37,6 @@ export default class Navigation extends Component {
     );
   }
 
-  // getSlideData() {
-  //   const slide = this.props.navData.listOfSlides[this.props.navData.currentSlideIndex];
-  //   return slide;
-  // }
-
-  // updateSlide(index) {
-  //     // const slide = this.state.navData.currentSlideIndex;
-  //     //contacts.push(index);
-  //     // console.log(this.state.navData.currentSlideIndex);
-  //     console.log(this.state.navData.currentSlideIndex);
-  //     this.props.updateVisited();
-  //     // this.setState({listOfSlides:this.state.listOfSlides});
-  //     this.setState({
-  //       navData:{
-  //         ...this.state.navData,
-  //         currentSlideIndex: index
-  //       }
-  //     });
-  //
-  // }
-
   render() {
     return(
       <div>

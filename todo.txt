@@ -1,5 +1,6 @@
+- visited slides
+
 - only shows if next/prev is valid
-- links to slides
 - allow edits on slides
   - forms?
 - allow delete slides
