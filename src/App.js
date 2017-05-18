@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
-//import Request from 'superagent';
-//import Home from './Home';
-//import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -31,19 +28,7 @@ class App extends Component {
     });
   }
 
-  updateVisited() {
-    // const slideToUpdate = this.props.presentation.listOfSlides[this.props.currentSlideIndex];
-    // slideToUpdate.visited=true;
-
-    //this.setState({listOfSlides:this.props.presentation.listOfSlides});
-
-    this.props.updateVisited();
-  }
-
   showNextButton(nextSlide) {
-    console.log("presentation "+this.props.presentation);
-    console.log("list of slides "+this.props.presentation.listOfSlides);
-    console.log("length "+this.props.presentation.listOfSlides.length);
     const lastSlide = this.props.presentation.listOfSlides.length-1;
     if (nextSlide>=lastSlide) {
       return false;
@@ -76,8 +61,6 @@ class App extends Component {
   prevSlide() {
     const nextSlide = this.props.currentSlideIndex-1;
     this.props.updateVisited();
-    console.log("prev clicked and current is " + this.props.currentSlideIndex);
-    console.log("prev clicked and next is " + nextSlide);
     const nextValueTemp = this.showNextButton(nextSlide);
     const prevValueTemp = this.showPrevButton(nextSlide);
     this.props.updateSlideIndex(nextSlide);
@@ -118,10 +101,7 @@ class App extends Component {
           {this.state.showPreviousButton ? <button className="Prev-Button"
             onClick={this.prevSlide}>PREV</button> : null}
         </div>
-        {this.props.children}
       </div>
     );
   }
 }
-
-export default App;

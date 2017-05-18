@@ -1,19 +1,7 @@
-import React from 'react';
-//import { createStore } from 'redux';
-//import ReactDOM from 'react-dom';
+import React, {Component} from 'react';
 import './index.css';
-import $ from 'jquery';
 
-
-//let store = createStore()
-export default class TwoColumn extends React.Component {
-  getPageInfo() {
-    return $.getJSON('google.com/slide')
-      .then((data) => {
-        // how can we get data for individual variables?
-        this.setState({ title:data.results })
-      });
-  }
+export default class TwoColumn extends Component {
   makeColumn(contentList) {
     return(
       <td><ul>
@@ -37,5 +25,4 @@ export default class TwoColumn extends React.Component {
       </div>
     );
   }
-
 }

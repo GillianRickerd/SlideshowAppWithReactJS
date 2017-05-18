@@ -1,4 +1,5 @@
 - visited slides
+- show correct buttons when new show is rendered
 
 - only shows if next/prev is valid
 - allow edits on slides

@@ -65,7 +65,8 @@ export default class AppHome extends Component {
         }
       ],
       currentSlideIndex:0,
-      display: 0
+      display: 0,
+
     }
     this.updatePresentation = this.updatePresentation.bind(this);
     this.updateVisited = this.updateVisited.bind(this);
@@ -89,8 +90,6 @@ export default class AppHome extends Component {
   //   });
   // }
   updateSlideIndex(index) {
-    console.log("current="+this.state.currentSlideIndex);
-    console.log("changing to="+index);
     this.setState({
       ...this.state,
       currentSlideIndex:index
@@ -101,7 +100,7 @@ export default class AppHome extends Component {
     this.setState({
       ...this.state,
       display: index,
-      currentSlideIndex:0
+      currentSlideIndex:0,
     })
   };
   revertVisited(index) {
@@ -113,7 +112,6 @@ export default class AppHome extends Component {
     const slides = this.state.presentations[this.state.display].presentation.listOfSlides;
     slides.map((item, index) => this.revertVisited(index));
   }
-
   changeTitle() {
     //TODO
   }

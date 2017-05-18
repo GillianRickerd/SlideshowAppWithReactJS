@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//import Slides from './Slides';
-//import {updateVisited} from './App';
-
-//import $ from 'jquery';
-//import Presentation from './Presentation';
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -16,9 +11,7 @@ export default class Navigation extends Component {
         currentSlideIndex: 0,
       }
     };
-    //this.updateSlide = this.updateSlide.bind(this);
   }
-
   getVisitedValue(item) {
     if (item.visited===true) {
       return (<b>&#10003;</b>);
@@ -36,7 +29,6 @@ export default class Navigation extends Component {
       </div>
     );
   }
-
   render() {
     return(
       <div>
