@@ -1,0 +1,98 @@
+$primaryColor: #80ff80;
+$font: sans-serif;
+$componentColor: #fb3161;
+$buttonColor: #fff;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+  background: $primaryColor;
+}
+
+p {
+  margin-top: -5px;
+}
+
+.list {
+  margin-left: 20px;
+}
+
+.navigation-title {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.navigation {
+  background-color: $componentColor;
+  vertical-align: top;
+  text-align: center;
+  border: solid;
+  width: 20%;
+}
+
+.slides {
+  width: 80%;
+}
+
+.page {
+  margin:10px;
+  height:70%;
+}
+
+.list-indent {
+  margin-left: 17px;
+}
+
+table {
+  width:100%;
+}
+
+.slideDiv {
+  background-color: $componentColor;
+  text-align: center;
+  border-style: solid;
+  height: 400px;
+}
+
+.title-slide {
+  position: relative;
+}
+
+.simple-slide {
+  position: relative;
+}
+
+.two-column-slide {
+  /*add styling here*/
+}
+
+.center-title {
+  margin-top: 160px;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+li, p {
+  text-align: left;
+}
+
+.Next-Button {
+  background-color: $buttonColor;
+  box-shadow: 5px 5px 5px #888888;
+  position:relative;
+  float: right;
+  right: 1%;
+}
+
+.Prev-Button {
+  background-color: $buttonColor;
+  box-shadow: 5px 5px 5px #888888;
+  position:relative;
+  left: 21%;
+}
+
+a {
+  color: #000;
+}

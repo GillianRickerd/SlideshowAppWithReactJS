@@ -1,10 +1,3 @@
-// //import fetch from 'isomorphic-fetch';
-//
-// export const REQUEST_PRESENTATION = 'REQUEST_PRESENTATION';
-// export const RECEIVE_PRESENTATION = 'RECEIVE_PRESENTATION';
-// export const REQUEST_SLIDE = 'REQUEST_SLIDE';
-// export const RECEIVE_SLIDE = 'RECEIVE_SLIDE';
-//
 export const clickTitle = (title) => {
   console.log('the title was clicked');
   return {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
+//import Home from './Home';
 //import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 class App extends Component {
@@ -36,16 +37,16 @@ class App extends Component {
 
 
   updateSlide(index) {
-    console.log(this.state.presentation.currentSlideIndex);
-    if (this.state.presentation.currentSlideIndex!==0) {
-      this.setState({
-        presentation:{
-          ...this.state.presentation,
-          currentSlideIndex:index
-        }
-      });
-    }
-    console.log(this.state.presentation.currentSlideIndex);
+    const nextValueTemp = this.showNextButton(index);
+    const prevValueTemp = this.showPrevButton(index);
+    this.setState({
+      presentation:{
+        ...this.state.presentation,
+        currentSlideIndex:index
+      },
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
+    });
   }
 
   updateVisited() {
@@ -55,48 +56,51 @@ class App extends Component {
     this.setState({listOfSlides:this.state.listOfSlides});
   }
 
-  // checkShowButtons() {
-  //   const currentSlide = this.state.presentation.currentSlideIndex;
-  //   const lastSlide = this.state.presentation.listOfSlides.length;
-  //   console.log("last"+lastSlide);
-  //   console.log("current"+currentSlide);
-  //   if (currentSlide===0) {
-  //     this.updateButtonShowValue(false, true);
-  //   } else if (currentSlide === lastSlide - 1) {
-  //     this.updateButtonShowValue(true, false);
-  //   } else {
-  //     this.updateButtonShowValue(true, true);
-  //   }
-  // }
+  showNextButton(nextSlide) {
+    const lastSlide = this.state.presentation.listOfSlides.length-1;
+    if (nextSlide>=lastSlide) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
-  // updateButtonShowValue(previous, next) {
-  //   this.setState({
-  //     ...this.state,
-  //     showPreviousButton:previous,
-  //     showNextButton:next
-  //   });
-  //   this.updateVisited();
-  // }
+  showPrevButton(nextSlide) {
+    if (nextSlide===0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   // TODO: only move forward or back if valid
   nextSlide() {
+    const nextSlide = this.state.presentation.currentSlideIndex+1;
     this.updateVisited();
-    // this.updateSlide(this.state.presentation.currentSlideIndex)
+    const nextValueTemp = this.showNextButton(nextSlide);
+    const prevValueTemp = this.showPrevButton(nextSlide);
     this.setState({
       presentation:{
         ...this.state.presentation,
         currentSlideIndex:this.state.presentation.currentSlideIndex+1
-      }
+      },
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
     });
   }
 
   prevSlide() {
+    const nextSlide = this.state.presentation.currentSlideIndex-1;
     this.updateVisited();
+    const nextValueTemp = this.showNextButton(nextSlide);
+    const prevValueTemp = this.showPrevButton(nextSlide);
     this.setState({
       presentation:{
         ...this.state.presentation,
         currentSlideIndex:this.state.presentation.currentSlideIndex-1
-      }
+      },
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
     });
   }
 
@@ -105,6 +109,7 @@ class App extends Component {
     //const { onIncrement, onDecrement } = this.props;
     return (
       <div className="page">
+        {/*<Link to="/home" component="{Home}">Home</Link>*/}
         <table>
           <tbody>
             <tr>
@@ -120,13 +125,13 @@ class App extends Component {
             </tr>
           </tbody>
         </table>
-        <div /*onClick={this.nextSlide}*/>
-          <showHide />
-          <button className="Next-Button"
-            onClick={this.nextSlide}>NEXT</button>
-          <button className="Prev-Button"
-            onClick={this.prevSlide}>PREV</button>
+        <div>
+          {this.state.showNextButton ? <button className="Next-Button"
+            onClick={this.nextSlide}>NEXT</button> : null}
+          {this.state.showPreviousButton ? <button className="Prev-Button"
+            onClick={this.prevSlide}>PREV</button> : null}
         </div>
+        {this.props.children}
       </div>
     );
   }

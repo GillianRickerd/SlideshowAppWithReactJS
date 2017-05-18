@@ -21,7 +21,7 @@ export default class Navigation extends Component {
 
   getVisitedValue(item) {
     if (item.visited===true) {
-      return (<b>&#9989;</b>);
+      return (<b>&#10003;</b>);
     } else {
       return (<b className="list-indent"></b>)
     }
