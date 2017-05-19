@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import App from './App';
+import Header from './Header';
 //import Request from 'superagent';
 
 export default class AppHome extends Component {
@@ -43,7 +44,8 @@ export default class AppHome extends Component {
               content:['animal', 'animal2', 'animal3'],
               content2:['animal4', 'animal5', 'animal6'],
               visited:false}],
-          }
+          },
+          showInput:false
         },
         { presentation: {
           title: 'Colors',
@@ -61,7 +63,8 @@ export default class AppHome extends Component {
               content:['red', 'green', 'white'],
               content2:['blue', 'yellow', 'orange'],
               visited:false}],
-          }
+          },
+          showInput:false
         }
       ],
       currentSlideIndex:0,
@@ -140,7 +143,8 @@ export default class AppHome extends Component {
     const presentationToDisplay = this.state.presentations[this.state.display].presentation;
     return (
       <div>
-        <h1>Welcome to {this.state.appOwner}&#39;s Slideshow App</h1>
+        <Header />
+        <h2>Welcome to {this.state.appOwner}&#39;s Slideshow App</h2>
         <div>
           <form><h3>
             <label>

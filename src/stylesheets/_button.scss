@@ -1,5 +1,6 @@
-$buttonColor: #fff;
+$buttonColor: #F7F7F7;
 $default-font: "Comic Sans MS", cursive, sans-serif;
+$shadow-color: #888888;
 
 button {
   &:hover {
@@ -13,7 +14,7 @@ button {
 .Next-Button {
   background-color: $buttonColor;
   font-family: $default-font;
-  box-shadow: 5px 5px 5px #888888;
+  box-shadow: 5px 5px 5px $shadow-color;
   position:relative;
   float: right;
   right: 1%;
@@ -22,7 +23,7 @@ button {
 .Prev-Button {
   background-color: $buttonColor;
   font-family: $default-font;
-  box-shadow: 5px 5px 5px #888888;
+  box-shadow: 5px 5px 5px $shadow-color;
   position:relative;
   left: 21%;
 }

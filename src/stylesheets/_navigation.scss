@@ -1,10 +1,13 @@
-$componentColor: #fb3161;
+$componentColor: #FD4F57;
+$backgroundColor: #16CBC4;
+$default-font: "Comic Sans MS", cursive, sans-serif;
+$textColor: #000;
 
 .navigation {
   background-color: $componentColor;
   vertical-align: top;
   text-align: center;
-  border: solid;
+  border: $textColor solid;
   width: 20%;
 }
 

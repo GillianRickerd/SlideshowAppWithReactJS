@@ -1,0 +1,24 @@
+$color: #F7F7F7;
+$text-color: #000;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  //border-bottom: 2px, $text-color;
+  border-bottom: 1px solid $componentColor;
+  width: 100%;
+  height: 70px;
+  background-color: $color;
+}
+
+.app-title {
+  color: $text-color;
+  margin-left: 5px;
+}
+
+.logo {
+  width: 60px;
+  margin-left: 10px;
+}
