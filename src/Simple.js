@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import './index.css';
-import $ from 'jquery';
+// import './index.css';
 import {clickTitle} from './actions/slideactions';
 
 export default class Simple extends Component {
   makeList(contentList) {
     return(
-      <ul>
+      <ul className="columns">
         {contentList.map((item, index) => <li key={index}>{item}</li>)}
       </ul>
     );
@@ -14,11 +13,8 @@ export default class Simple extends Component {
   render() {
     return (
       <div>
-        <div className="simple-slide">
-          <h1 onClick={clickTitle}>{this.props.simpleData.title}</h1>
-            {this.makeList(this.props.simpleData.content)}
-        </div>
-
+        <h1 onClick={clickTitle}>{this.props.simpleData.title}</h1>
+          {this.makeList(this.props.simpleData.content)}
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+// import './index.css';
 import Title from './Title';
 import Simple from './Simple';
 import TwoColumn from './TwoColumn';

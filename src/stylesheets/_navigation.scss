@@ -1,0 +1,26 @@
+$componentColor: #fb3161;
+
+.navigation {
+  background-color: $componentColor;
+  vertical-align: top;
+  text-align: center;
+  border: solid;
+  width: 20%;
+}
+
+.navigation-title {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.list {
+  margin-left: 20px;
+}
+
+.list-indent {
+  margin-left: 17px;
+}
+
+p {
+  margin-top: -5px;
+}

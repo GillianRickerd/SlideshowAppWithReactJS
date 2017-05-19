@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import App from './App';
-import Request from 'superagent';
-import './style.scss';
+//import Request from 'superagent';
+//import './stylesheets/style.scss';
 
 export default class AppHome extends Component {
   constructor() {

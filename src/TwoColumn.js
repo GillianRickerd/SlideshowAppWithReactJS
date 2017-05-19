@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './index.css';
+// import './index.css';
 
 export default class TwoColumn extends Component {
   makeColumn(contentList) {
@@ -11,9 +11,9 @@ export default class TwoColumn extends Component {
   }
   render() {
     return (
-      <div className="two-column-slide">
+      <div>
         <h1>{this.props.twoColumnData.title}</h1>
-        <table>
+        <table className="columns">
           <tbody>
             <tr>
               {this.makeColumn(this.props.twoColumnData.content)}
@@ -21,7 +21,6 @@ export default class TwoColumn extends Component {
             </tr>
           </tbody>
         </table>
-
       </div>
     );
   }

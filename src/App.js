@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
 
@@ -97,9 +97,9 @@ export default class App extends Component {
         </table>
         <div>
           {this.state.showNextButton ? <button className="Next-Button"
-            onClick={this.nextSlide}>NEXT</button> : null}
+            onClick={this.nextSlide}>&#8594;</button> : null}
           {this.state.showPreviousButton ? <button className="Prev-Button"
-            onClick={this.prevSlide}>PREV</button> : null}
+            onClick={this.prevSlide}>&#8592;</button> : null}
         </div>
       </div>
     );
