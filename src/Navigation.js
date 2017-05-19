@@ -34,7 +34,8 @@ export default class Navigation extends Component {
         <h3 className="navigation-title"
           onDoubleClick={() => this.props.showInput(this.props.presentationIndex)}>
             {this.props.allPresData.showInput ?
-              <form><input type="text" onChange={this.props.changeTitle}/></form>
+              <form><input type="text" onChange={this.props.changeTitle}
+                onBlur={() => this.props.showInput(this.props.presentationIndex)}/></form>
               : <b>{this.props.navData.title}</b>}
         </h3>
         <div>

@@ -78,7 +78,6 @@ export default class App extends Component {
           <tbody>
             <tr>
               <td className="navigation">
-                {console.log(this.props.showInputValue)}
                 <Navigation
                   allPresData={this.props.allPresData}
                   changeTitle={this.props.changeTitle}
