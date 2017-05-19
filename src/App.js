@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
 
@@ -79,9 +78,14 @@ export default class App extends Component {
           <tbody>
             <tr>
               <td className="navigation">
+                {console.log(this.props.showInputValue)}
                 <Navigation
+                  allPresData={this.props.allPresData}
+                  changeTitle={this.props.changeTitle}
+                  showInputValue={this.props.showInputValue}
+                  showInput={this.props.showInput}
+                  presentationIndex={this.props.presentationIndex}
                   updateSlide={this.updateSlide}
-
                   currentSlideIndex={this.props.currentSlideIndex}
                   navData={presentationState}/>
               </td>

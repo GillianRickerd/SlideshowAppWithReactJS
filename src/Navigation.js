@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -32,7 +31,12 @@ export default class Navigation extends Component {
   render() {
     return(
       <div>
-        <h3 className="navigation-title">{this.props.navData.title}</h3>
+        <h3 className="navigation-title"
+          onDoubleClick={() => this.props.showInput(this.props.presentationIndex)}>
+            {this.props.allPresData.showInput ?
+              <form><input type="text" onChange={this.props.changeTitle}/></form>
+              : <b>{this.props.navData.title}</b>}
+        </h3>
         <div>
           {this.findListed(this.props.navData.listOfSlides)}
         </div>

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import './index.css';
 import {clickTitle} from './actions/slideactions';
 
 export default class Simple extends Component {
