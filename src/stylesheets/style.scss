@@ -1,0 +1,67 @@
+@import 'button';
+@import 'navigation';
+@import 'header';
+
+$backgroundColor: #16CBC4;
+$default-font: "Comic Sans MS", cursive, sans-serif;
+$componentColor: #FD4F57;
+$textColor: #000;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $default-font;
+  background: $backgroundColor;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: $textColor;
+}
+
+li, p {
+  text-align: left;
+  color: $textColor;
+}
+
+a {
+  color: $textColor;
+}
+
+table {
+  width:100%;
+  color: $textColor;
+}
+
+td {
+  text-align: center;
+}
+
+.columns {
+  width: 70%;
+  margin-left: 20%;
+}
+
+h3.home-links {
+  text-align: center;
+}
+
+.page {
+  margin:10px;
+  height:70%;
+}
+
+.slides {
+  width: 80%;
+}
+
+.slideDiv {
+  background-color: $componentColor;
+  text-align: center;
+  border-style: solid;
+  height: 400px;
+}
+
+.center-title {
+  margin-top: 160px;
+}

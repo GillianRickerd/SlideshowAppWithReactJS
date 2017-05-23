@@ -1,6 +1,4 @@
-- only shows if next/prev is valid
-- links to slides
-- allow edits on slides
-  - forms?
+- show correct buttons when new show is rendered
+
 - allow delete slides
 - allow url to change with slides

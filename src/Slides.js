@@ -1,11 +1,8 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
-import './index.css';
-
+// import './index.css';
 import Title from './Title';
 import Simple from './Simple';
 import TwoColumn from './TwoColumn';
-//import $ from 'jquery'
 
 export default class Slides extends React.Component {
   constructor(props) {
@@ -18,26 +15,9 @@ export default class Slides extends React.Component {
       }
     };
   }
-
-  // pass url in as param?
-  // getTypeFromAPI() {
-  //   return $.getJSON('google.com/type')
-  //     .then((data) => {
-  //       this.setState({ type:data.results })
-  //     });
-  // }
-
-  // updateVisited(data) {
-  //   data.visited===true;
-  // }
-
   getType(slideData) {
-    // is using var okay? const or let instead?
-    //this.getTypeFromAPI();
     const slideType = this.props.slideData.type;
-    // are these types named like this?
     if (slideType === 'title') {
-      /*this.updateVisited(this.props.slideData);*/
       return (<Title titleData={this.props.slideData} />);
     } else if (slideType === 'simple') {
       return (<Simple simpleData={this.props.slideData}/>);
@@ -47,9 +27,7 @@ export default class Slides extends React.Component {
       return (<div></div>);
     }
   }
-
   render() {
-    return(<div>{this.getType(this.state.slideData)}</div>);
+    return(<div>{this.getType(this.props.slideData)}</div>);
   }
-
 }

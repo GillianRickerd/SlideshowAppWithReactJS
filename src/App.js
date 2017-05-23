@@ -1,31 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import Presentation from './Presentation';
 import Navigation from './Navigation';
-//import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      presentation: {
-        title: 'cool presentation',
-        listOfSlides: [
-          {type:'title',
-            title:'title slide',
-            content:[],
-            visited:false},
-          {type:'simple',
-            title:'simple slide',
-            content:['panda', 'puppy', 'kitten'],
-            visited:false},
-          {type:'twocolumn',
-            title:'column slide',
-            content:['gillian', 'jacob', 'charlotte'],
-            content2:['amy', 'kevin', 'julia'],
-            visited:false}],
-        currentSlideIndex: 0,
-      },
+      presentation: {},
+      currentSlideIndex:0,
       showPreviousButton: false,
       showNextButton: true
     };
@@ -34,103 +16,95 @@ class App extends Component {
     this.updateSlide = this.updateSlide.bind(this);
   }
 
-
   updateSlide(index) {
-    console.log(this.state.presentation.currentSlideIndex);
-    if (this.state.presentation.currentSlideIndex!==0) {
-      this.setState({
-        presentation:{
-          ...this.state.presentation,
-          currentSlideIndex:index
-        }
-      });
-    }
-    console.log(this.state.presentation.currentSlideIndex);
-  }
-
-  updateVisited() {
-    const slideToUpdate =
-      this.state.presentation.listOfSlides[this.state.presentation.currentSlideIndex];
-    slideToUpdate.visited=true;
-    this.setState({listOfSlides:this.state.listOfSlides});
-  }
-
-  // checkShowButtons() {
-  //   const currentSlide = this.state.presentation.currentSlideIndex;
-  //   const lastSlide = this.state.presentation.listOfSlides.length;
-  //   console.log("last"+lastSlide);
-  //   console.log("current"+currentSlide);
-  //   if (currentSlide===0) {
-  //     this.updateButtonShowValue(false, true);
-  //   } else if (currentSlide === lastSlide - 1) {
-  //     this.updateButtonShowValue(true, false);
-  //   } else {
-  //     this.updateButtonShowValue(true, true);
-  //   }
-  // }
-
-  // updateButtonShowValue(previous, next) {
-  //   this.setState({
-  //     ...this.state,
-  //     showPreviousButton:previous,
-  //     showNextButton:next
-  //   });
-  //   this.updateVisited();
-  // }
-
-  // TODO: only move forward or back if valid
-  nextSlide() {
-    this.updateVisited();
-    // this.updateSlide(this.state.presentation.currentSlideIndex)
+    const nextValueTemp = this.showNextButton(index);
+    const prevValueTemp = this.showPrevButton(index);
+    this.props.updateSlideIndex(index);
     this.setState({
-      presentation:{
-        ...this.state.presentation,
-        currentSlideIndex:this.state.presentation.currentSlideIndex+1
-      }
+      ...this.state,
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
+    });
+  }
+
+  showNextButton(nextSlide) {
+    const lastSlide = this.props.presentation.listOfSlides.length-1;
+    if (nextSlide>=lastSlide) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  showPrevButton(nextSlide) {
+    if (nextSlide===0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  nextSlide() {
+    const nextSlide = this.props.currentSlideIndex+1;
+    this.props.updateVisited();
+    const nextValueTemp = this.showNextButton(nextSlide);
+    const prevValueTemp = this.showPrevButton(nextSlide);
+    this.props.updateSlideIndex(nextSlide);
+    this.setState({
+      ...this.state,
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
     });
   }
 
   prevSlide() {
-    this.updateVisited();
+    const nextSlide = this.props.currentSlideIndex-1;
+    this.props.updateVisited();
+    const nextValueTemp = this.showNextButton(nextSlide);
+    const prevValueTemp = this.showPrevButton(nextSlide);
+    this.props.updateSlideIndex(nextSlide);
     this.setState({
-      presentation:{
-        ...this.state.presentation,
-        currentSlideIndex:this.state.presentation.currentSlideIndex-1
-      }
+      ...this.state,
+      showPreviousButton:prevValueTemp,
+      showNextButton:nextValueTemp
     });
   }
 
   render() {
-    const presentationState = this.state.presentation;
-    //const { onIncrement, onDecrement } = this.props;
+    const presentationState = this.props.presentation;
     return (
       <div className="page">
         <table>
           <tbody>
             <tr>
               <td className="navigation">
-                <Navigation updateSlide={this.updateSlide}
-                  updateVisited={this.updateVisited} navData={presentationState}/>
+                <Navigation
+                  allPresData={this.props.allPresData}
+                  changeTitle={this.props.changeTitle}
+                  showInputValue={this.props.showInputValue}
+                  showInput={this.props.showInput}
+                  presentationIndex={this.props.presentationIndex}
+                  updateSlide={this.updateSlide}
+                  currentSlideIndex={this.props.currentSlideIndex}
+                  navData={presentationState}/>
               </td>
               <td className="slides">
                 <div className="slideDiv">
-                  <Presentation presData={presentationState}/>
+                  <Presentation
+                    presData={presentationState}
+                    currentSlideIndex={this.props.currentSlideIndex} />
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
-        <div /*onClick={this.nextSlide}*/>
-          <showHide />
-          <button className="Next-Button"
-            onClick={this.nextSlide}>NEXT</button>
-          <button className="Prev-Button"
-            onClick={this.prevSlide}>PREV</button>
+        <div>
+          {this.state.showNextButton ? <button className="Next-Button"
+            onClick={this.nextSlide}>&#8594;</button> : null}
+          {this.state.showPreviousButton ? <button className="Prev-Button"
+            onClick={this.prevSlide}>&#8592;</button> : null}
         </div>
       </div>
     );
   }
-
 }
-
-export default App;
